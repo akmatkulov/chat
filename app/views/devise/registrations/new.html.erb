@@ -1,0 +1,26 @@
+<h1 class="text-center">Sign up</h1>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+    <div class="form-floating col-sm-4 mb-3 center-block">
+      <%= f.text_field :email, class: "form-control", id: "floatingInput", placeholder: "Email" %>
+      <%= f.label :email, for: "floatingInput" %>
+    </div>
+
+    <div class="form-floating col-sm-4 mb-3 center-block">
+      <%= f.password_field :password, class: "form-control", id: "floatingPassword", placeholder: "Password"  %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.label :password, for: "floatingPassword", autocomplete: "new-password" %>
+    </div>
+
+    <div class="form-floating col-sm-4 mb-3 center-block">
+        <%= f.password_field :password_confirmation, class: "form-control", id: "floatingPassword", placeholder: "Password Confirmation" %>
+        <%= f.label :password_confirmation, for: "floatingPassword" %>
+    </div>
+
+    <%= f.submit "Sign up", class: "btn btn-primary btn-lg center-block"%>
+      
+  <% end %>
+
