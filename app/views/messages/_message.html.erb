@@ -1,0 +1,6 @@
+
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <%= message.body %>
+    <span class="badge text-black"><%= likes(message) %></span>
+    <span class="badge bg-primary rounded-pill"><%= message.user.email %></span>
+  </li>

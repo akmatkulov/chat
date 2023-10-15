@@ -1,0 +1,16 @@
+<%= turbo_stream_from @room %>
+
+<ul class="list-group">
+    <%= turbo_frame_tag :messages do %>
+        <%= render @messages %>
+    <% end %>
+</ul>
+
+<%= form_with model: @new_message do |f| %>
+    <div class="form-floating col-sm-4 mb-3 mt-3">
+      <%= f.text_field :body, class: "form-control", id: "floatingInput", placeholder: "New Message" %>
+      <%= f.label :body, for: "floatingInput" %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+    </div>
+    <%= f.submit "New Message", class: "btn btn-primary btn-lg"%>
+<% end %>
