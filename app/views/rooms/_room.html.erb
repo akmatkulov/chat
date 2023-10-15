@@ -1,1 +1,13 @@
-<%= link_to room.title, room_path(room.title), target: "_blank", rel: "noopener noreferrer" %>
+<div class="col-md-3">
+    <div class="card border-info mb-3" style="max-width: 18rem;">
+    <div class="card-header"><%= link_to room.title, room_path(room.title), target: "_blank", rel: "noopener noreferrer" %></div>
+    <div class="card-body">
+        <h5 class="card-title"><%= room.created_at %></h5>
+        <p class="card-text">Created by: <%= room.user.email %></p>
+    </div>
+    </div>
+</div>
+
+
+
+
