@@ -1,17 +1,15 @@
+<li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold"><%= message.user.email %></div>
+      <%= message.body %>
+    </div>
+    <span class="badge">
+        <%= link_to like_message_path(message.id), data: { "turbo-method": :post }, class: "d-inline-flex focus-ring py-1 px-2 text-decoration-none", style: "--bs-focus-ring-color: rgba(var(--bs-success-rgb), .25)" do %>
+            <%= render partial: "messages/heart", locals: {user: user, message: message } %>
+            <%= render partial: "messages/likes_count", locals: { message: message } %>
+        <% end %>  
+    </span>
+</li>
 
-        				<li class="in">
-        					<div class="chat-body">
-        						<div class="chat-message">
-        							<h5><%= message.user.email %></h5>
-        							<p><%= message.body %></p>
-                      <span class="badge text-black">
-                        <%= link_to like_message_path(message.id), data: { "turbo-method": :post } do %>
-                          <%= render partial: "messages/heart", locals: {user: user, message: message } %>
-                          <%= render partial: "messages/likes_count", locals: { message: message } %>
-                        <% end %>
-                      </span>
-        						</div>
-        					</div>
-        				</li>
         
         				

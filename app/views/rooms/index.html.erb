@@ -1,11 +1,21 @@
 <h2>All Rooms</h2>
 
 <%= turbo_frame_tag :rooms do %>
-    <div class="card-group">
-        <%= render @rooms %>
-    </div>
-<% end %>
+<%= turbo_stream_from @room %>
 
+<table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Room title</th>
+      <th scope="col">Messages</th>
+      <th scope="col">User created</th>
+      <th scope="col">Room created at</th>
+    </tr>
+</thead>
+  <%= render @rooms %>
+</table>
+
+<% end %>
 <% if user_signed_in? %>
     <%= form_with model: @new_room do |f| %>
         <div class="form-floating col-sm-4 mb-3 center-block">
